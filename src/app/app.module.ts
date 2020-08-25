@@ -19,9 +19,10 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 import { HomeModule } from 'app/main/home/home.module';
+import { UIModule } from 'app/main/ui/ui.module';
+
 
 const appRoutes: Routes = [
-    
     {
         path      : '**',
         redirectTo: 'sample'
@@ -31,7 +32,6 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent
-        
     ],
     imports     : [
         BrowserModule,
@@ -58,7 +58,8 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         SampleModule,
-        HomeModule
+        HomeModule,
+        UIModule
     ],
     bootstrap   : [
         AppComponent

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { fuseAnimations } from '@fuse/animations';
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations   : fuseAnimations
 })
 export class HomeComponent implements OnInit {
 

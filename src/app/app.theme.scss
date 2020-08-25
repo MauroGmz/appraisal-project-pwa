@@ -82,6 +82,9 @@ $typography: mat-typography-config(
 @import "src/app/layout/components/toolbar/toolbar.theme";
 @import "src/app/main/apps/scrumboard/scrumboard.theme";
 
+@import "src/app/main/ui/cards/cards.theme";
+@import "src/app/main/home/card/card.theme";
+
 // Define a mixin for easier access
 @mixin components-theme($theme) {
 
@@ -91,6 +94,10 @@ $typography: mat-typography-config(
 
     // Apps
     @include scrumboard-theme($theme);
+
+    // UI
+    @include ui-cards-theme($theme);
+    @include ui-card-theme($theme);
     
 }
 

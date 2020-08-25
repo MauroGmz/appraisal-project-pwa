@@ -6,6 +6,10 @@ import { FuseSharedModule } from '@fuse/shared.module';
 
 import { HomeComponent } from './home.component';
 
+import { MatIconModule } from '@angular/material/icon';
+import { CardModule } from './card/card.module';
+import { UICardsModule } from '../ui/cards/cards.module';
+
 const routes = [
     {
         path     : 'home',
@@ -20,8 +24,11 @@ const routes = [
     imports     : [
         RouterModule.forChild(routes),
 
+        MatIconModule,
         TranslateModule,
-        FuseSharedModule
+        FuseSharedModule,
+        CardModule,
+        UICardsModule
     ],
     exports     : [
         HomeComponent
