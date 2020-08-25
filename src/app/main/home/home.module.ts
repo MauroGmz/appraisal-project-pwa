@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { CardModule } from './card/card.module';
+import { HomeboardModule } from './homeboard/homeboard.module';
 import { UICardsModule } from '../ui/cards/cards.module';
 
 const routes = [
@@ -28,7 +29,8 @@ const routes = [
         TranslateModule,
         FuseSharedModule,
         CardModule,
-        UICardsModule
+        UICardsModule,
+        HomeboardModule
     ],
     exports     : [
         HomeComponent
