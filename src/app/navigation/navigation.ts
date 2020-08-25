@@ -20,25 +20,15 @@ export const navigation: FuseNavigation[] = [
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }
-            }
-        ]
-    },
-    {
-        id       : 'applications',
-        title    : 'Applications',
-        translate: 'NAV.APPLICATIONS',
-        type     : 'group',
-        children : [
+            },
             {
                 id       : 'home',
                 title    : 'Home',
-                translate: 'NAV.SAMPLE.TITLE',
                 type     : 'item',
-                icon     : 'photo',
-                url      : '/sample',
+                icon     : 'assessment',
+                url      : '/home',
                 badge    : {
                     title    : '25',
-                    translate: 'NAV.SAMPLE.BADGE',
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }

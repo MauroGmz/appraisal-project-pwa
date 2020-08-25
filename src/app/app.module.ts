@@ -18,8 +18,10 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
+import { HomeModule } from 'app/main/home/home.module';
 
 const appRoutes: Routes = [
+    
     {
         path      : '**',
         redirectTo: 'sample'
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent
+        
     ],
     imports     : [
         BrowserModule,
@@ -54,7 +57,8 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule
+        SampleModule,
+        HomeModule
     ],
     bootstrap   : [
         AppComponent
