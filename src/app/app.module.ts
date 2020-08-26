@@ -20,6 +20,8 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 import { HomeModule } from 'app/main/home/home.module';
 import { UIModule } from 'app/main/ui/ui.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
         LayoutModule,
         SampleModule,
         HomeModule,
-        UIModule
+        UIModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     bootstrap   : [
         AppComponent
