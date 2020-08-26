@@ -22,13 +22,16 @@ import { HomeModule } from 'app/main/home/home.module';
 import { UIModule } from 'app/main/ui/ui.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AppraisalComponent } from './main/appraisal/appraisal.component';
+import { AppraisalModule } from './main/appraisal/appraisal.module';
 
 
 const appRoutes: Routes = [
     {
         path      : '**',
         redirectTo: 'sample'
-    }
+    },
+    {path: 'new-appraisal', component: AppraisalComponent}
 ];
 
 @NgModule({
@@ -62,7 +65,11 @@ const appRoutes: Routes = [
         SampleModule,
         HomeModule,
         UIModule,
+        AppraisalModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ],
+    exports   : [
+        RouterModule
     ],
     bootstrap   : [
         AppComponent

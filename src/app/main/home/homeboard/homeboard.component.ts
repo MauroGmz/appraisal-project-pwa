@@ -1,5 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { fuseAnimations } from '@fuse/animations';
+import { Router } from '@angular/router';
+
 @Component({
     selector     : 'homeboard',
     templateUrl  : './homeboard.component.html',
@@ -7,4 +9,15 @@ import { fuseAnimations } from '@fuse/animations';
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
-export class HomeboardComponent {}
+export class HomeboardComponent implements OnInit {
+
+    constructor(private router: Router) { }
+  
+    ngOnInit() {
+    }
+  
+    addNewAppraisal() {
+      this.router.navigate(['/new-appraisal']);
+    }
+  
+  }

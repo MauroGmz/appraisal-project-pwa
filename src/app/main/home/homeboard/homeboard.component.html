@@ -22,6 +22,7 @@
 
         <!-- NEW BOARD BUTTON -->
         <div class="board-list-item add-new-board" fxLayout="column" fxLayoutAlign="center center"
+             (click)="addNewAppraisal()"
              [@animate]="{value:'*',params:{y:'100%'}}">
             <mat-icon class="s-56">add_circle</mat-icon>
             <div class="board-name">Nueva Tasación</div>

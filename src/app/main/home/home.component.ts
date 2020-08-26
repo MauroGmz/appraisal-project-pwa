@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { fuseAnimations } from '@fuse/animations';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'home',
