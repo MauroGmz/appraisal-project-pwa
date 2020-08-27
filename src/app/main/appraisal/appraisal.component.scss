@@ -1,0 +1,36 @@
+@import "src/@fuse/scss/fuse";
+
+#new_appraisal {
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  .header {
+
+    h1 {
+      font-size: 40px;
+      font-weight: 300;
+    }
+    
+  }
+
+  .panels-content {
+    width: 94%;
+    margin-left: 3%;
+
+    .example-headers-align .mat-expansion-panel-header-title,
+    .example-headers-align .mat-expansion-panel-header-description {
+      flex-basis: 0;
+    }
+
+    .example-headers-align .mat-expansion-panel-header-description {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .example-headers-align .mat-form-field + .mat-form-field {
+      margin-left: 8px;
+    }
+  }
+}
+

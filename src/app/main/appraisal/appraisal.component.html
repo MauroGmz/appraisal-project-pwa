@@ -1,1 +1,60 @@
-<p>appraisal works!</p>
+
+<div id="new_appraisal" class="fuse-navy" fxLayout="column" fxLayoutAlign="start center" fxFlex fusePerfectScrollbar>
+    <div class="header pt-44 pt-md-88" fxLayout="row" fxLayoutAlign="center center" fxFlex="0 0 auto"
+    [@animate]="{value:'*',params:{delay:'100ms'}}">
+        <h1>Tasaciones App</h1>
+    </div>
+
+    <!-- NEW APPRAISAL -->
+    <div class="panels-content">
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Nombre de Vehículo
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <mat-action-row>
+                <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Fotos del Vehículo
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Documentos
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+          
+          
+              <mat-action-row>
+                <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                <button mat-button color="primary" (click)="nextStep()">Fin</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          
+        </mat-accordion>
+          
+    </div>
+    <!-- / NEW APPRAISAL -->
+
+</div>
+
+
+
+
+  
