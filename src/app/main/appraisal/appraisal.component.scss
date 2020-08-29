@@ -46,12 +46,18 @@
       padding-right: 8px;
     }
 
+    #image_upload{
+      //display: none;
+    }
+
     .images-section {
-      display: flex;
 
       .example-card {
-        max-width: 33%;
         border-radius: 0;
+
+        .photo{
+          object-fit: cover;
+        }
         .example-card-image {
           background-size: cover;
         }
