@@ -2,7 +2,7 @@
 <div id="new_appraisal" class="fuse-navy" fxLayout="column" fxLayoutAlign="start center" fxFlex fusePerfectScrollbar>
     <div class="header pt-44 pt-md-88" fxLayout="row" fxLayoutAlign="center center" fxFlex="0 0 auto"
     [@animate]="{value:'*',params:{delay:'100ms'}}">
-        <h1>Tasaciones App</h1>
+        <h1>Nueva Tasación</h1>
     </div>
 
     <!-- NEW APPRAISAL -->
@@ -14,7 +14,15 @@
                   Nombre de Vehículo
                 </mat-panel-title>
               </mat-expansion-panel-header>
-          
+              <p>Si no se completa este campo, la tasación tendrá como nombre la fecha de la realización de la misma</p>
+              <form class="example-form">
+                <table class="example-full-width" cellspacing="0"><tr>
+                  <td><mat-form-field class="example-full-width">
+                    <mat-label>Nombre de nueva Tasación</mat-label>
+                    <input matInput placeholder="Ej: Tasación de Vehículo Ford...">
+                  </mat-form-field></td>
+                </tr></table>
+              </form>
               <mat-action-row>
                 <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
               </mat-action-row>
@@ -26,7 +34,31 @@
                   Fotos del Vehículo
                 </mat-panel-title>
               </mat-expansion-panel-header>
-          
+
+              <div class="images-section" >
+                <mat-card class="example-card">
+                  <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                </mat-card>
+                <mat-card class="example-card">
+                  <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                </mat-card>
+                <mat-card class="example-card">
+                  <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                </mat-card>
+              </div>
+              <!-- NEW BOARD BUTTON -->
+              <div class="board-list" fxFlex="0 0 auto" fxLayout="row wrap" fxLayoutAlign="center center" 
+              [@animateStagger]="{value:'50'}">
+                <div class="board-list-item add-new-board" fxLayout="column" fxLayoutAlign="center center" 
+                [@animate]="{value:'*',params:{y:'100%'}}">
+                  <div class="board-icon">
+                    <mat-icon class="s-56">photo_camera</mat-icon>
+                  </div>
+                  <div class="board-name">Pulse aquí para tomar foto</div>
+                </div>
+              </div>
+              
+              <!-- / NEW BOARD BUTTON -->
               <mat-action-row>
                 <button mat-button color="warn" (click)="prevStep()">Anterior</button>
                 <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
@@ -48,6 +80,7 @@
             </mat-expansion-panel>
           
         </mat-accordion>
+
           
     </div>
     <!-- / NEW APPRAISAL -->

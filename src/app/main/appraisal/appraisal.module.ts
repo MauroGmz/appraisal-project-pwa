@@ -4,6 +4,10 @@ import { AppraisalComponent } from './appraisal.component';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';  
 
 const routes: Routes = [
     {
@@ -19,7 +23,11 @@ const routes: Routes = [
     imports        : [
         RouterModule.forChild(routes),
         MatExpansionModule,
-        MatButtonModule
+        MatButtonModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatCardModule,
+        MatIconModule
     ],
     exports     : [
         AppraisalComponent
