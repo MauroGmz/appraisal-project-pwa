@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Photo } from '../../models/photo';
+//import { Photo } from '../../models/photo';
 
-
+import { Photo } from './../../models/Photo';
 
 @Component({
   selector: 'appraisal',
