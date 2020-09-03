@@ -51,32 +51,37 @@
                 </div>
               </div>
               <!-- / NEW BOARD BUTTON -->
-
-              <mat-card id="image_upload" class="example-card" [ngStyle]="{'display': flag ? 'block' : 'none'}">
-                <img mat-card-image id="photo" class="photo" #photo>
-              </mat-card> 
+              <div [ngStyle]="{'display': flag ? 'block' : 'none'}">
+                <mat-card id="image_upload" class="example-card">
+                  <img mat-card-image id="photo" class="photo" #photo>
+                </mat-card>
+                
+                <button mat-raised-button
+                    color="warn"
+                    matTooltip="Agrega la foto a la lista de fotos tomadas"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    (click)="addPhoto(photo)">
+                    Agregar Foto
+                </button>
+  
+                <button mat-raised-button
+                    color="warn"
+                    matTooltip="Reintentar"
+                    aria-label="Button that displays a tooltip when focused or hovered over"
+                    (click)="activeCamera(camera)">
+                    Cancelar
+                </button>
+              </div>
+              
 
               <mat-grid-list class="images-section" cols="3" rowHeight="1:1">
-                <mat-grid-tile>
+
+                <mat-grid-tile *ngFor="let photo of photosArray">
                   <mat-card class="example-card">
-                    <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <img mat-card-image class="example-card-image" [src]="photo.url">
                   </mat-card>
                 </mat-grid-tile>
-                <mat-grid-tile>
-                  <mat-card class="example-card">
-                    <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <mat-card class="example-card">
-                    <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <mat-card class="example-card">
-                    <img mat-card-image class="example-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                  </mat-card>
-                </mat-grid-tile>
+                
               </mat-grid-list>
               
 

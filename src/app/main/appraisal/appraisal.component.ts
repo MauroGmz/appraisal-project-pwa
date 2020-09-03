@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Photo } from '../../models/photo';
+
+
+
 @Component({
   selector: 'appraisal',
   templateUrl: './appraisal.component.html',
@@ -10,6 +14,13 @@ export class AppraisalComponent implements OnInit {
   panelOpenState = false;
   step = 0;
   flag = false;
+  photosArray: Photo[]= [
+    {id: 1, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
+    {id: 2, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
+    {id: 3, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
+    {id: 4, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
+  ];
+  selectedPhoto: Photo = new Photo();
 
   constructor() { }
 
@@ -50,6 +61,16 @@ export class AppraisalComponent implements OnInit {
     // Open and send data to endpoint /upload
     /*xhttp.open('POST', window.location.href + 'upload', true);
     xhttp.send(formData)*/
+    
+  }
+
+  addPhoto(photo) {
+    this.selectedPhoto.url = photo.src;
+    if(this.selectedPhoto.id === 0) {
+      this.selectedPhoto.id = this.photosArray.length + 1;
+      this.photosArray.push(this.selectedPhoto);
+    }
+    this.selectedPhoto = new Photo();
   }
 
 }
