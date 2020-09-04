@@ -7,7 +7,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import 'hammerjs';
+import '../polyfills'
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
@@ -24,6 +26,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppraisalComponent } from './main/appraisal/appraisal.component';
 import { AppraisalModule } from './main/appraisal/appraisal.module';
+import { DialogContentExampleDialog } from './main/appraisal/appraisal.component';
 
 
 const appRoutes: Routes = [
@@ -70,6 +73,9 @@ const appRoutes: Routes = [
     ],
     exports   : [
         RouterModule
+    ],
+    providers: [
+        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     ],
     bootstrap   : [
         AppComponent

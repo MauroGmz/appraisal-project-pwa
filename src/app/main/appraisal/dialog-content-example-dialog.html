@@ -1,0 +1,8 @@
+<!-- <h2 mat-dialog-title>Photo n°{{data.photo.id}}</h2> -->
+<mat-dialog-content class="mat-typography">
+    <img [ngStyle]="{'background-image':'url('+data.photo.url+')'}" style="width:220px;height:220px;background-size: cover">
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Eliminar</button>
+</mat-dialog-actions>

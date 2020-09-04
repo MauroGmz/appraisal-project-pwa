@@ -51,26 +51,12 @@
                 </div>
               </div>
               <!-- / NEW BOARD BUTTON -->
-              <div [ngStyle]="{'display': flag ? 'block' : 'none'}">
+              <!-- <div [ngStyle]="{'display': flag ? 'block' : 'none'}"> -->
+              <div [ngStyle]="{'display': 'none'}">
                 <mat-card id="image_upload" class="example-card">
                   <img mat-card-image id="photo" class="photo" #photo>
                 </mat-card>
                 
-                <button mat-raised-button
-                    color="warn"
-                    matTooltip="Agrega la foto a la lista de fotos tomadas"
-                    aria-label="Button that displays a tooltip when focused or hovered over"
-                    (click)="addPhoto(photo)">
-                    Agregar Foto
-                </button>
-  
-                <button mat-raised-button
-                    color="warn"
-                    matTooltip="Reintentar"
-                    aria-label="Button that displays a tooltip when focused or hovered over"
-                    (click)="activeCamera(camera)">
-                    Cancelar
-                </button>
               </div>
               
 
@@ -84,8 +70,8 @@
                   <div [ngStyle]="{'background-image':'url('+photo.url+')'}"></div>
                 </mat-grid-tile>
                 -->
-                <mat-grid-tile *ngFor="let photo of photosArray">
-                  <div class="image-url" [ngStyle]="{'background-image':'url('+photo.url+')'}"></div>
+                <mat-grid-tile *ngFor="let photo of photosArray" [class.active]="photo == selectedPhoto">
+                  <div class="image-url" [ngStyle]="{'background-image':'url('+photo.url+')'}" (click)="openDialog(photo)"></div>
                 </mat-grid-tile>
               </mat-grid-list>
               

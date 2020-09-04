@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 //import { Photo } from '../../models/photo';
 
 import { Photo } from './../../models/Photo';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+
+
+export interface DialogData {
+  flagDelete: boolean;
+  photo: Photo;
+}
 
 @Component({
   selector: 'appraisal',
@@ -16,15 +22,16 @@ export class AppraisalComponent implements OnInit {
   panelOpenState = false;
   step = 0;
   flag = false;
-  photosArray: Photo[]= [
+  flagDelete: boolean;
+  photosArray: Photo[]= [/*
     {id: 1, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
     {id: 2, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
     {id: 3, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"},
-    {id: 4, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
+    {id: 4, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"}*/
   ];
   selectedPhoto: Photo = new Photo();
   imagePath: string;
-  constructor(private _DomSanitizationService: DomSanitizer) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -60,11 +67,32 @@ export class AppraisalComponent implements OnInit {
     // Create Data Form Instance.
     const formData = new FormData();
     // Add blob object into instance.
-    formData.append("photo", evt.target.files[0]);
+    //formData.append("photo", evt.target.files[0]);
     // Open and send data to endpoint /upload
     /*xhttp.open('POST', window.location.href + 'upload', true);
     xhttp.send(formData)*/
+    this.addPhoto(photo);
     
+  }
+
+  openDialog(photo: Photo) {
+
+    this.openForEdit(photo);
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      data: {photo: this.selectedPhoto, flagDelete: this.flagDelete}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.flagDelete = result;
+      console.log(`Dialog result: ${result}`);
+      if(this.flagDelete)
+        this.delete();
+    });
+    this.flagDelete = false;
+  }
+
+  openForEdit(photo: Photo) {
+    this.selectedPhoto = photo;
   }
 
   addPhoto(photo) {
@@ -80,5 +108,22 @@ export class AppraisalComponent implements OnInit {
     }
     this.selectedPhoto = new Photo();
   }
+
+  delete() {
+    this.photosArray = this.photosArray.filter(x => x != this.selectedPhoto);
+    this.selectedPhoto = new Photo();
+  }
+
+}
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<AppraisalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
 }
