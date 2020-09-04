@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Photo } from './../../models/Photo';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'appraisal',
   templateUrl: './appraisal.component.html',
@@ -21,8 +23,8 @@ export class AppraisalComponent implements OnInit {
     {id: 4, url: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
   ];
   selectedPhoto: Photo = new Photo();
-
-  constructor() { }
+  imagePath: string;
+  constructor(private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -49,6 +51,7 @@ export class AppraisalComponent implements OnInit {
     this.flag = true;
     // Create url object and show Photo from BLOB Object.
     photo.src = URL.createObjectURL(evt.target.files[0]);
+    //this._DomSanitizationService.bypassSecurityTrustUrl(photo.src);
     // Create Http Request Instance.
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -65,7 +68,12 @@ export class AppraisalComponent implements OnInit {
   }
 
   addPhoto(photo) {
+    //this._DomSanitizationService.bypassSecurityTrustUrl(photo.src);
+    //this._DomSanitizationService.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+    //           + photo.src.base64string);
+
     this.selectedPhoto.url = photo.src;
+    console.log(photo.src);
     if(this.selectedPhoto.id === 0) {
       this.selectedPhoto.id = this.photosArray.length + 1;
       this.photosArray.push(this.selectedPhoto);
