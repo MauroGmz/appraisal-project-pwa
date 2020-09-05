@@ -89,7 +89,18 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
           
-          
+              <!-- NEW BOARD BUTTON -->
+              <div class="board-list" fxFlex="0 0 auto" fxLayout="row wrap" fxLayoutAlign="center center" 
+              [@animateStagger]="{value:'50'}">
+                <div class="board-list-item add-new-board2" fxLayout="column" fxLayoutAlign="center center" 
+                [@animate]="{value:'*',params:{y:'100%'}}">
+                  <div class="board-icon">
+                    <mat-icon class="s-56">photo_camera</mat-icon>
+                  </div>
+                  <div class="board-name">Pulse aquí para tomar foto</div>
+                </div>
+              </div>
+
               <mat-action-row>
                 <button mat-button color="warn" (click)="prevStep()">Anterior</button>
                 <button mat-button color="primary" (click)="nextStep()">Fin</button>
@@ -101,6 +112,10 @@
           
     </div>
     <!-- / NEW APPRAISAL -->
+
+    <div *ngIf="photosArray.length > 0">
+      <button id="button_add" mat-raised-button color="accent">Agregar tasación</button>
+    </div>
 
 </div>
 
