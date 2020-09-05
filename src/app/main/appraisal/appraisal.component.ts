@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 
 //import { Photo } from '../../models/photo';
-
+import { fuseAnimations } from '@fuse/animations';
 import { Photo } from './../../models/Photo';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 
@@ -17,7 +18,9 @@ export interface DialogData {
 @Component({
   selector: 'appraisal',
   templateUrl: './appraisal.component.html',
-  styleUrls: ['./appraisal.component.scss']
+  styleUrls: ['./appraisal.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  animations   : fuseAnimations
 })
 export class AppraisalComponent implements OnInit {
   
@@ -33,7 +36,11 @@ export class AppraisalComponent implements OnInit {
   ];
   selectedPhoto: Photo = new Photo();
   imagePath: string;
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit() {
   }
@@ -118,8 +125,15 @@ export class AppraisalComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000, 
     });
+    this._snackBar._openedSnackBarRef.afterDismissed().subscribe(() => {
+      this.goToHome();
+    });
+  }
+
+  goToHome() {
+    this.router.navigate(['/home']);
   }
 
 }
