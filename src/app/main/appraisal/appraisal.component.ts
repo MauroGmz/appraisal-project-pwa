@@ -5,6 +5,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Photo } from './../../models/Photo';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 export interface DialogData {
@@ -31,7 +33,7 @@ export class AppraisalComponent implements OnInit {
   ];
   selectedPhoto: Photo = new Photo();
   imagePath: string;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -112,6 +114,12 @@ export class AppraisalComponent implements OnInit {
   delete() {
     this.photosArray = this.photosArray.filter(x => x != this.selectedPhoto);
     this.selectedPhoto = new Photo();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

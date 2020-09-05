@@ -14,7 +14,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar'; 
 
 const routes: Routes = [
     {
@@ -39,7 +39,8 @@ const routes: Routes = [
         MatIconModule,
         MatGridListModule,
         MatDialogModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatSnackBarModule
     ],
     exports     : [
         AppraisalComponent,
