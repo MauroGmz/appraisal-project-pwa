@@ -27,14 +27,17 @@ import { environment } from '../environments/environment';
 import { AppraisalComponent } from './main/appraisal/appraisal.component';
 import { AppraisalModule } from './main/appraisal/appraisal.module';
 import { DialogContentExampleDialog } from './main/appraisal/appraisal.component';
+import { AppraisalListComponent } from './main/appraisal-list/appraisal-list.component';
+import { AppraisalListModule } from './main/appraisal-list/appraisal-list.module'
 
 
 const appRoutes: Routes = [
     {
         path      : '**',
-        redirectTo: 'sample'
+        redirectTo: 'home'
     },
-    {path: 'new-appraisal', component: AppraisalComponent}
+    {path: 'new-appraisal', component: AppraisalComponent},
+    {path: 'appraisal-list', component: AppraisalListComponent}
 ];
 
 @NgModule({
@@ -69,6 +72,7 @@ const appRoutes: Routes = [
         HomeModule,
         UIModule,
         AppraisalModule,
+        AppraisalListModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     exports   : [

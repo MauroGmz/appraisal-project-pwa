@@ -19,5 +19,9 @@ export class HomeboardComponent implements OnInit {
     addNewAppraisal() {
       this.router.navigate(['/new-appraisal']);
     }
+
+    viewAllAppraisals() {
+      this.router.navigate(['/appraisal-list']);
+    }
   
   }
