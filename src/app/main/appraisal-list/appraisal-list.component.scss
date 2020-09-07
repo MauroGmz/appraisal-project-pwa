@@ -1,0 +1,32 @@
+@import "src/@fuse/scss/fuse";
+
+.content-list {
+    width: 100%;
+
+    mat-card {
+        display: flex;
+        border-radius: 0;
+
+        .description, button {
+            margin-left: auto;
+        }
+
+        .description {
+            text-align: center;
+            margin-top: .5rem;
+            h3 {
+                color: grayscale($color: #9b9292);
+            }
+            h2, h3 {
+                margin: 0;
+            }
+        }
+
+        button {
+            margin-top: 1rem;
+            height: 4rem;
+        }
+
+    }
+
+}
