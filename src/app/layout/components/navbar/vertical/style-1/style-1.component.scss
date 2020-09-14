@@ -22,8 +22,9 @@ fuse-sidebar {
                         .logo {
 
                             .logo-icon {
-                                width: 32px;
+                                width: 52px;
                                 height: 32px;
+                                padding: 0;
                             }
 
                             .logo-text {
@@ -130,8 +131,15 @@ navbar {
                 align-items: center;
 
                 .logo-icon {
-                    width: 24px;
-                    height: 24px;
+                    width: 80%;
+                    height: 80%;
+                    padding: 25px;
+                    margin: auto;
+
+                    @include media-breakpoint('xs') {
+                        height: 50%;
+                        width: 50%;
+                    }
                 }
 
                 .logo-text {
